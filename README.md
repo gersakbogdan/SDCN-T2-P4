@@ -1,7 +1,6 @@
-# PID Controller Project
-Self-Driving Car Engineer Nanodegree Program
+# Self-Driving Car Engineer Nanodegree Program
 
----
+## PID Controller Project
 
 [//]: # (Image/Video References)
 
@@ -21,22 +20,8 @@ Self-Driving Car Engineer Nanodegree Program
 [image7]: ./output/P0095-D1.35.gif "Params = [0.095, 0, 1.35]"
 [video7]: ./output/P0095-D1.35.mov "Params = [0.095, 0, 1.35]"
 
-## Basic Build Instructions
 
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./pid`.
-
-or
-
-1. Build and run: `./run.sh`
-
-
-## PID Controller
-
-
-#### P component
+### P component
 
 The Proportional term produces an output value proportional to the CTE value.
 P term can be adjusted by multiplying the error with a constant value Kp called the proportional gain constant.
@@ -51,13 +36,13 @@ can start to oscillate around the target and can become unstable.
 | 0.1, 0, 0 | <img src="./output/P01.gif" min-width="320px" min-height="237px" /> | Not bad, vehicle bounce from left to right but stays on track on a straight line. In order to have a faster response when turning D term should be used.
 
 
-#### I component
+### I component
 
 The I term is proportional to both the magnitude of the error and the duration of the error.
 The I term accelerates the movement of the process towards setpoint and eliminates the residual steady-state error that occurs with a pure P controller.
 
 
-#### D component
+### D component
 
 The D term is proportional to the rate of change of CTE.
 The D term improves settling time and stability of the system and reduces the overshooting and oscilattions caused by P term.
@@ -86,7 +71,19 @@ When I term value was high the vehicle went directly out of the track and for re
 
 D term is used in order to improve system stability and to reduce the overshooting and oscilattions and that was obvious after setting this param because even when value was high the vehicle was able to stay on the track. Tuning for this parameter was necessary only for making the vehicle moves smoother.
 
-After all this steps the final parameters were: P - 0.095, I - 0, D - 1.35 and the final output:
+After all this steps the final parameters were: `Kp = 0.095, Ki = 0, Kd = 1.35` and the final output:
 
 ![image7]
+
+
+## Basic Build Instructions
+
+1. Clone this repo.
+2. Make a build directory: `mkdir build && cd build`
+3. Compile: `cmake .. && make`
+4. Run it: `./pid`.
+
+or
+
+1. Build and run: `./run.sh`
 
